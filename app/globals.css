@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 228 29% 96%;
+    --foreground: 240 16% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 16% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 16% 10%;
+    --primary: 352 77% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 228 27% 95%;
+    --secondary-foreground: 240 16% 12%;
+    --muted: 228 27% 95%;
+    --muted-foreground: 240 9% 44%;
+    --accent: 228 27% 94%;
+    --accent-foreground: 240 16% 12%;
+    --destructive: 352 77% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 80% 33%;
+    --success-foreground: 0 0% 100%;
+    --border: 228 25% 90%;
+    --input: 228 25% 90%;
+    --ring: 145 70% 35%;
+    --radius: 0.75rem;
+    --hero-tint: 352 60% 97%;
+    --glow-a: 352 77% 48% / 0.07;
+    --glow-b: 145 80% 35% / 0.07;
+    --shadow-color: 240 30% 40%;
+  }
+
+  .dark {
+    --background: 240 17% 9%;
+    --foreground: 240 20% 96%;
+    --card: 240 16% 13%;
+    --card-foreground: 240 20% 96%;
+    --popover: 240 16% 13%;
+    --popover-foreground: 240 20% 96%;
+    --primary: 352 77% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 17% 16%;
+    --secondary-foreground: 240 20% 96%;
+    --muted: 240 17% 16%;
+    --muted-foreground: 240 11% 65%;
+    --accent: 240 17% 19%;
+    --accent-foreground: 240 20% 96%;
+    --destructive: 352 77% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 145 80% 38%;
+    --success-foreground: 0 0% 100%;
+    --border: 240 15% 20%;
+    --input: 240 15% 22%;
+    --ring: 145 65% 45%;
+    --radius: 0.75rem;
+    --hero-tint: 340 30% 15%;
+    --glow-a: 352 77% 50% / 0.16;
+    --glow-b: 145 80% 40% / 0.12;
+    --shadow-color: 240 40% 2%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  h1 {
+    @apply text-3xl font-extrabold tracking-tight;
+  }
+
+  h2 {
+    @apply text-lg font-bold;
+  }
+
+  /* Components (Button, Input, Checkbox, Select, Dialog) draw their own ring and
+     opt out with outline-none; plain links and buttons get this outline instead. */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .app-glow {
+    background-image: radial-gradient(900px 400px at 100% -10%, hsl(var(--glow-a)), transparent 70%),
+      radial-gradient(600px 400px at -10% 110%, hsl(var(--glow-b)), transparent 70%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
